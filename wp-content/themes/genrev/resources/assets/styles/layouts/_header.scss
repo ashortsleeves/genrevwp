@@ -1,0 +1,108 @@
+.banner .nav li {
+  @extend .nav-item;
+}
+
+.banner .nav a {
+  @extend .nav-link;
+}
+
+header.banner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: 0.3s;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff;
+
+  @include tablet {
+    background-color: transparent;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  a.brand {
+    opacity: 1;
+    position: relative;
+    padding: 10px 0;
+    transition: 0.5s;
+
+    @include laptop {
+      opacity: 0;
+    }
+
+    img {
+      position: relative;
+      height: 45px;
+    }
+
+    &-scrolled {
+      opacity: 1;
+    }
+  }
+
+  nav.nav-primary {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+
+    ul {
+      li {
+        padding: 0;
+
+        a {
+          display: block;
+          color: $brand-secondary;
+          font-size: 18px;
+          padding: 27px 10px;
+          line-height: 1;
+          position: relative;
+          font-weight: 900;
+
+          @include laptop {
+            padding: 27px 15px;
+          }
+        }
+
+        &.current_page_item {
+          a {
+            color: $brand-primary;
+          }
+        }
+
+        &.contact {
+          a {
+            @include btn;
+
+            font-weight: 400;
+            padding: 27px 20px !important;
+            color: #fff;
+
+            &::after {
+              display: none;
+            }
+          }
+
+          @include desktop {
+            padding-left: 10px;
+
+            a {
+              padding: 27px 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.fixed-header {
+    background-color: #fff;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  }
+}
