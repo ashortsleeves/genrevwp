@@ -30,6 +30,16 @@ img {
   max-width: 100%;
   height: auto;
 }
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+p {
+  margin-bottom: 15px;
+}
+
 
 h1,
 .h1 {
@@ -120,5 +130,14 @@ ul.nav a {
 
   @include hd {
     max-width: 1170px !important;
+  }
+}
+
+.cardstyle {
+  padding: 15px;
+  background-color: $offwhite;
+
+  @include laptop {
+    padding: 25px;
   }
 }

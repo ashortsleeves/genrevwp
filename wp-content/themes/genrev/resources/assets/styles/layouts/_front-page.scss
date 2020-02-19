@@ -35,6 +35,8 @@ section.about {
   }
 }
 
+
+
 section.adventures {
   background-color: $brand-primary;
 
@@ -47,14 +49,6 @@ section.adventures {
 
   h2 {
     margin-bottom: 15px;
-  }
-
-  h1 {
-    color: $brand-secondary;
-
-    strong {
-      color: #fff;
-    }
   }
 
   .col-title {
@@ -117,6 +111,84 @@ section.adventures {
 
     .raft {
       background-color: $brand-blue-l;
+    }
+  }
+}
+
+section.get-involved {
+  background-color: $brand-blue;
+  background-size: contain;
+  background-position: bottom;
+  position: relative;
+  padding-bottom: 120px;
+
+  img.forest-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .cardstyle {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: auto;
+      align-self: flex-start;
+      margin-bottom: 15px;
+    }
+
+    @include phablet {
+      flex-direction: row;
+
+      img {
+        width: 150px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
+
+    @include tablet {
+      img {
+        margin-right: 15px;
+        margin-bottom: 15px;
+        width: 295px;
+      }
+    }
+
+    @include desktop {
+      img {
+        margin-bottom: 0;
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+section.adventures,
+section.get-involved {
+  h1 {
+    color: $brand-secondary;
+    text-align: center;
+
+    strong {
+      color: #fff;
+    }
+  }
+}
+
+section.upcoming-events {
+  h1 {
+    color: $brand-primary;
+    text-align: center;
+
+    strong {
+      color: $brand-secondary;
     }
   }
 }
