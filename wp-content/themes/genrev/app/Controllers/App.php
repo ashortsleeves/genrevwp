@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Sober\Controller\Controller;
-use Facebook;
+// use Facebook;
 class App extends Controller
 {
     public function siteName()
@@ -60,22 +60,5 @@ class App extends Controller
       ];
 
       return $data;
-    }
-
-    public function fburl()
-    {
-      session_start();
-      $fb = new Facebook\Facebook([
-      'app_id' => fb_app_id, // Replace {app-id} with your app id
-      'app_secret' => fb_api_secret,
-      'default_graph_version' => 'v3.2',
-      ]);
-
-      $helper = $fb->getRedirectLoginHelper();
-
-      $permissions = ['email']; // Optional permissions
-      $loginUrl = $helper->getLoginUrl('https://genrev.test/', $permissions);
-
-      return $loginUrl;
     }
 }

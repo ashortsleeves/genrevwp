@@ -118,10 +118,63 @@
         </div>
       </div>
     </section>
+    @if($gen_rev_events->have_posts() )
     <section class="fp-section upcoming-events">
       <div class="container">
-        <a href="{!!$fburl!!}">Log in here BAYBEEE</a>
+        <h1>Upcoming <strong>Events</strong></h1>
+        <p class="center">
+          We have had several hundred different participants, and we welcome more with every trip and event!
+        </p>
+        <div class="event-slider">
+          @php
+            while ($gen_rev_events->have_posts() ) : $gen_rev_events->the_post();
+
+            $event_date = get_post_meta( get_the_ID(), 'event_start_date', true );
+            $start_date_str = get_post_meta( get_the_ID(), 'start_ts', true );
+            $end_date_str = get_post_meta( get_the_ID(), 'end_ts', true );
+            if( $event_date != '' ){
+            	$event_date = strtotime( $event_date );
+            }
+            $venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
+            $image_url =  array();
+            if ( '' !== get_the_post_thumbnail() ){
+            	$image_url =  wp_get_attachment_image_src( get_post_thumbnail_id(  get_the_ID() ), 'full' );
+            }else{
+            	$image_date = date_i18n('F+d', $event_date );
+            	$image_url[] =  "http://placehold.it/420x150?text=".$image_date;
+            }
+
+            $dayOfWeek = date("l", strtotime(date_i18n('Y-m-d', $event_date)));
+          @endphp
+
+          <div class="event-single">
+            <div class="event-content">
+              <span class="month">{{date_i18n('M', $event_date)}}</span>
+              <span class="day">{{date_i18n('d', $event_date)}}</span>
+              <h3>{{the_title()}}</h3>
+              <div class="deet-block">
+                <i class="far fa-clock"></i>
+                <p>{{$dayOfWeek}}, {{date_i18n('M d Y', $event_date)}} at {{$start_time = date_i18n( 'h:i a', $start_date_str )}} -
+                {{$end_time = date_i18n( 'h:i a', $end_date_str )}}</p>
+              </div>
+              @if($venue_address)
+                <div class="deet-block">
+                  <i class="fas fa-map-marker-alt"></i>
+
+                  <p>{!!$venue_address!!}</p>
+
+                </div>
+              @endif
+              <a href="{!! $image_url[0]!!}" class="btn">Join Us <i class="fab fa-facebook"></i></a>
+            </div>
+            <div class="event-img" style=" background: url('{!!$image_url[0]!!}')">
+            </div>
+          </div>
+          @endwhile
+        </div>
       </div>
     </section>
+  @endif
+  @php wp_reset_query(); @endphp
   @endwhile
 @endsection

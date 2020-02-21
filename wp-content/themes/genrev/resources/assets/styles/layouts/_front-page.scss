@@ -183,12 +183,62 @@ section.get-involved {
 }
 
 section.upcoming-events {
+  background-color: $brand-green-3;
+  padding-top: 15px;
+
+
   h1 {
     color: $brand-primary;
     text-align: center;
 
     strong {
       color: $brand-secondary;
+    }
+  }
+
+  p.center {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #fff;
+
+    @include laptop {
+      margin-bottom: 45px;
+    }
+  }
+
+  i.slick-arrow {
+    position: absolute;
+    display: block;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-weight: 900;
+    top: 45%;
+    font-size: 20px;
+    color: #fff;
+    z-index: 999;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover,
+    &:focus {
+      background-color: $brand-hover;
+    }
+
+    &.fa-chevron-left {
+      left: 0;
+    }
+
+    &.fa-chevron-right {
+      right: 0;
+    }
+
+    @include desktop {
+      height: 108px;
+      width: 108px;
+      line-height: 108px;
+      font-size: 60px;
     }
   }
 }

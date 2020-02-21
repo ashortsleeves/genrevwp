@@ -10,8 +10,8 @@
  * @see https://github.com/webpack-contrib/sass-loader#imports
  */
 // @import "~some-node-module";
-// @import "~slick-carousel/slick/slick.scss";
-// @import "~slick-carousel/slick/slick-theme.scss";
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
 @import "~@fortawesome/fontawesome-pro/css/fontawesome.css";
 @import "~@fortawesome/fontawesome-pro/css/brands.css";
 @import "~@fortawesome/fontawesome-pro/css/light.css";
