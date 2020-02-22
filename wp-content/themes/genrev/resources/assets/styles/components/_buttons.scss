@@ -35,6 +35,15 @@ a.btn {
     }
   }
 
+  &.btn-red {
+    background-color: $brand-primary;
+
+    &:hover,
+    &:focus {
+      background-color: lighten($brand-primary, 15%);
+    }
+  }
+
   &.btn-lg {
     @include laptop {
       padding: 20px 45px;

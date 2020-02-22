@@ -14,10 +14,17 @@ export default {
       slidesToShow: 1,
       responsive: [
         {
-          breakpoint: 990,
+          breakpoint: 991,
           settings: {
-            autoplay: true,
-            autoplaySpeed: 5000,
+            autoplay: false,
+            autoplaySpeed: 10000,
+          },
+
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
           },
         },
       ],

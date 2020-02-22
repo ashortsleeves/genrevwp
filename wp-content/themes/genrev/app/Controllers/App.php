@@ -41,6 +41,16 @@ class App extends Controller
       return get_field('hero', 'option');
     }
 
+    public function pdf()
+    {
+      return get_field('gen_rev_pdf', 'option');
+    }
+
+    public function favEvents()
+    {
+      return get_field('favorite_events', 'option');
+    }
+
     public function footer()
     {
       $data = [

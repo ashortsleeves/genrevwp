@@ -118,63 +118,106 @@
         </div>
       </div>
     </section>
-    @if($gen_rev_events->have_posts() )
-    <section class="fp-section upcoming-events">
-      <div class="container">
-        <h1>Upcoming <strong>Events</strong></h1>
-        <p class="center">
-          We have had several hundred different participants, and we welcome more with every trip and event!
-        </p>
-        <div class="event-slider">
-          @php
-            while ($gen_rev_events->have_posts() ) : $gen_rev_events->the_post();
+    <div class="event-section-wrap">
+      @if($gen_rev_events->have_posts() )
+      <section class="fp-section upcoming-events">
+        <div class="container">
+          <div class="title-wrap">
+            <h1>Upcoming <strong>Events</strong></h1>
+            <p class="center">
+              We have had several hundred different participants, and we welcome more with every trip and event!
+            </p>
+          </div>
+          <div class="event-slider">
+            @php
+              while ($gen_rev_events->have_posts() ) : $gen_rev_events->the_post();
 
-            $event_date = get_post_meta( get_the_ID(), 'event_start_date', true );
-            $start_date_str = get_post_meta( get_the_ID(), 'start_ts', true );
-            $end_date_str = get_post_meta( get_the_ID(), 'end_ts', true );
-            if( $event_date != '' ){
-            	$event_date = strtotime( $event_date );
-            }
-            $venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
-            $image_url =  array();
-            if ( '' !== get_the_post_thumbnail() ){
-            	$image_url =  wp_get_attachment_image_src( get_post_thumbnail_id(  get_the_ID() ), 'full' );
-            }else{
-            	$image_date = date_i18n('F+d', $event_date );
-            	$image_url[] =  "http://placehold.it/420x150?text=".$image_date;
-            }
+              $event_date = get_post_meta( get_the_ID(), 'event_start_date', true );
+              $start_date_str = get_post_meta( get_the_ID(), 'start_ts', true );
+              $end_date_str = get_post_meta( get_the_ID(), 'end_ts', true );
+              if( $event_date != '' ){
+              	$event_date = strtotime( $event_date );
+              }
+              $venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
+              $image_url =  array();
+              if ( '' !== get_the_post_thumbnail() ){
+              	$image_url =  wp_get_attachment_image_src( get_post_thumbnail_id(  get_the_ID() ), 'full' );
+              }else{
+              	$image_date = date_i18n('F+d', $event_date );
+              	$image_url[] =  "http://placehold.it/420x150?text=".$image_date;
+              }
 
-            $dayOfWeek = date("l", strtotime(date_i18n('Y-m-d', $event_date)));
-          @endphp
+              $dayOfWeek = date("l", strtotime(date_i18n('Y-m-d', $event_date)));
+            @endphp
+              <div class="event-wrap">
+                <div class="event-single">
+                  <div class="event-content">
+                    <div class='date'>
+                      <span class="month">{{date_i18n('M', $event_date)}}</span>
+                      <span class="day">{{date_i18n('d', $event_date)}}</span>
+                    </div>
+                      <h3>{{substr(get_the_title(),0,24)}}</h3>
 
-          <div class="event-single">
-            <div class="event-content">
-              <span class="month">{{date_i18n('M', $event_date)}}</span>
-              <span class="day">{{date_i18n('d', $event_date)}}</span>
-              <h3>{{the_title()}}</h3>
-              <div class="deet-block">
-                <i class="far fa-clock"></i>
-                <p>{{$dayOfWeek}}, {{date_i18n('M d Y', $event_date)}} at {{$start_time = date_i18n( 'h:i a', $start_date_str )}} -
-                {{$end_time = date_i18n( 'h:i a', $end_date_str )}}</p>
-              </div>
-              @if($venue_address)
-                <div class="deet-block">
-                  <i class="fas fa-map-marker-alt"></i>
+                    <div class="deet-block">
+                      <i class="far fa-clock"></i>
+                      <p>{{$dayOfWeek}}, {{date_i18n('M d Y', $event_date)}} at {{$start_time = date_i18n( 'h:i a', $start_date_str )}} -
+                      {{$end_time = date_i18n( 'h:i a', $end_date_str )}}</p>
+                    </div>
+                    @if($venue_address)
+                      <div class="deet-block">
+                        <i class="fas fa-map-marker-alt"></i>
 
-                  <p>{!!$venue_address!!}</p>
+                        <p>{!!$venue_address!!}</p>
 
+                      </div>
+                    @endif
+                    <a href="{!! esc_url(get_permalink())!!}" class="btn">Join Us <i class="fab fa-facebook"></i></a>
+                  </div>
+                  <div class="event-img jumbo-bg" style=" background-image: url('{!!$image_url[0]!!}')">
+                  </div>
                 </div>
-              @endif
-              <a href="{!! $image_url[0]!!}" class="btn">Join Us <i class="fab fa-facebook"></i></a>
-            </div>
-            <div class="event-img" style=" background: url('{!!$image_url[0]!!}')">
+              </div>
+            @endwhile
+          </div>
+          <div class="button-wrap">
+            <a href="/?page_id=49" class="btn">View Calendar</a>
+            <a href="{{$pdf['url']}}" class="btn btn-red">{{$pdf['title']}} <i class="fas fa-file-pdf"></i></a>
+          </div>
+        </div>
+      </section>
+      @php wp_reset_query(); @endphp
+    @endif
+    <section class="fp-section favorite-events @if($gen_rev_events->have_posts())favorite-events-lg @endif">
+      <div class="container">
+        <div class="title-wrap">
+          <h1><strong>Our Favorite</strong> Events</h1>
+          <p>Below are some of our favorite outdoor activities that we like to do every year.</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-xl-10 col-lg-11">
+            <div class="row">
+              @foreach($fav_events as $event)
+                <div class="col-sm-4 col-6 jumbo-bg fav-event" style="background-image: url('{!!$event['image']['url']!!}')">
+                  <a href="/?page_id=46#{{str_replace('<br>','', str_replace(' ', '_',$event['title']))}}">
+                    <h3>{!!$event['title']!!}</h3>
+                  </a>
+                </div>
+              @endforeach
             </div>
           </div>
-          @endwhile
+        </div>
+        <div class="button-wrap">
+          <a href="/?page_id=49" class="btn">View Calendar</a>
+          <a href="{{$pdf['url']}}" class="btn btn-red">{{$pdf['title']}} <i class="fas fa-file-pdf"></i></a>
         </div>
       </div>
     </section>
-  @endif
-  @php wp_reset_query(); @endphp
+  </div>
+  <section class="suggest-adventure">
+    <div class="container">
+      <h2>Have an idea for an event?</h2>
+      <a class="btn" href="/?page_id=46#suggest-adventure">Suggest an Adventure!</a>
+    </div>
+  </section>
   @endwhile
 @endsection

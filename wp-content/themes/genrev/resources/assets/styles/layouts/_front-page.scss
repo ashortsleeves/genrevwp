@@ -182,8 +182,11 @@ section.get-involved {
   }
 }
 
-section.upcoming-events {
+.event-section-wrap {
   background-color: $brand-green-3;
+}
+
+section.upcoming-events {
   padding-top: 15px;
 
 
@@ -198,12 +201,7 @@ section.upcoming-events {
 
   p.center {
     text-align: center;
-    margin-bottom: 15px;
     color: #fff;
-
-    @include laptop {
-      margin-bottom: 45px;
-    }
   }
 
   i.slick-arrow {
@@ -223,7 +221,7 @@ section.upcoming-events {
 
     &:hover,
     &:focus {
-      background-color: $brand-hover;
+      color: $brand-hover;
     }
 
     &.fa-chevron-left {
@@ -240,5 +238,265 @@ section.upcoming-events {
       line-height: 108px;
       font-size: 60px;
     }
+  }
+
+  .event-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .event-single {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column-reverse;
+      position: relative;
+
+
+      .event-content {
+        background-color: $brand-secondary;
+        max-width: auto;
+        padding: 15px;
+        text-align: center;
+        color: #fff;
+        line-height: 1.1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+
+        .date {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+
+        span.month,
+        span.day {
+          display: block;
+          font-weight: 900;
+          margin-bottom: 0;
+        }
+
+        span.month {
+          font-size: 24px;
+          color: #f45832;
+          text-transform: uppercase;
+        }
+
+        span.day {
+          font-size: 48px;
+          margin-bottom: 15px;
+        }
+
+        h3 {
+          color: #fff;
+          margin-bottom: 15px;
+        }
+
+        .deet-block {
+          display: flex;
+          text-align: left;
+          margin-bottom: 15px;
+
+          i {
+            margin-top: 7px;
+            margin-right: 10px;
+            font-weight: 900;
+          }
+
+          p {
+            font-size: 16px;
+          }
+        }
+
+        a.btn {
+          background-color: $brand-primary;
+          align-self: center;
+          margin-top: auto;
+
+          &:hover,
+          &:focus {
+            background-color: $brand-hover;
+          }
+        }
+      }
+      .event-img {
+        display: block;
+        height: 150px;
+        width: 100%;
+
+        @include phablet {
+          height: 250px;
+        }
+      }
+
+      @include tablet {
+        width: 550px;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        .event-content {
+          max-width: 286px;
+          position: relative;
+          z-index: 999;
+          height: 400px;
+
+          .date {
+            position: relative;
+            left: 0;
+            top: 0;
+          }
+        }
+
+        .event-img {
+          height: auto;
+          width: auto;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 284px;
+          right: 0;
+        }
+      }
+
+      @include laptop {
+        width: 732px;
+      }
+
+      @include desktop {
+        .event-content {
+          padding: 25px;
+          height: 430px;
+        }
+      }
+    }
+  }
+}
+
+.button-wrap {
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @include tablet {
+    padding-top: 30px;
+  }
+
+  @include laptop {
+    padding-top: 60px;
+  }
+
+  .btn-red {
+    margin-left: 10px;
+  }
+}
+
+.title-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  p {
+    max-width: 470px;
+    margin-bottom: 15px;
+
+    @include laptop {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+section.favorite-events {
+  h1,
+  p {
+    text-align: center;
+  }
+
+  p {
+    max-width: 416px;
+    color: #fff;
+  }
+
+  h1 {
+    color: $brand-primary;
+
+    strong {
+      color: $brand-secondary;
+    }
+  }
+
+  &-lg {
+    background-color: $brand-green-2;
+
+    h1 {
+      color: #fff;
+
+      strong {
+        color: $brand-secondary;
+      }
+    }
+
+    .button-wrap {
+      display: none;
+    }
+  }
+
+  .fav-event {
+    height: 200px;
+    position: relative;
+
+    &:last-of-type() {
+      display: none;
+    }
+
+
+    h3 {
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.77);
+      display: inline-block;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      margin-bottom: 0;
+    }
+
+    @include phablet {
+      height: 175px;
+
+      &:last-of-type() {
+        display: block;
+      }
+    }
+
+    @include tablet {
+      height: 230px;
+    }
+  }
+}
+
+section.suggest-adventure {
+  background-color: $brand-primary;
+  padding: 15px 0;
+
+  @include tablet {
+    padding: 30px 0;
+  }
+
+  @include laptop {
+    padding: 45px 0;
+  }
+
+  h2 {
+    color: #fff;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 }
