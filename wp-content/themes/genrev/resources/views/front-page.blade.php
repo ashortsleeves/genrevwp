@@ -18,7 +18,10 @@
                 </p>
                 <a class="btn" href="/?page_id=44">Learn More</a>
               </div>
-              <img src="@asset('images/about.jpg')" alt="hike" />
+              <div class="image-box jumbo-bg" style="background-image: url(@asset('images/borestone.jpg'))">
+
+              </div>
+
             </div>
 
           </div>
