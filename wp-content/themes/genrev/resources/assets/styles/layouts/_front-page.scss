@@ -158,33 +158,46 @@ section.get-involved {
     align-items: flex-start;
     flex-direction: column;
 
-    img {
+    // img {
+    //   width: 100%;
+    //   height: auto;
+    //   align-self: flex-start;
+    //   margin-bottom: 15px;
+    // }
+
+    .image-box {
+      position: relative;
+      display: block;
+      height: 200px;
       width: 100%;
-      height: auto;
-      align-self: flex-start;
+      flex-grow: 0;
+      flex-shrink: 0;
       margin-bottom: 15px;
     }
+
 
     @include phablet {
       flex-direction: row;
 
-      img {
+      .image-box {
         width: 150px;
+        height: 150px;
         margin-right: 10px;
         margin-bottom: 10px;
       }
     }
 
     @include tablet {
-      img {
+      .image-box {
         margin-right: 15px;
         margin-bottom: 15px;
         width: 295px;
+        height: 295px;
       }
     }
 
     @include desktop {
-      img {
+      .image-box {
         margin-bottom: 0;
         margin-right: 30px;
       }

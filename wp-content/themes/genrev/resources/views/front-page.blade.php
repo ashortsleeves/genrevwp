@@ -112,7 +112,9 @@
           <div class="col-xl-8 col-lg-9 col-md-10">
             <h1>Get <strong>Involved</strong></h1>
             <div class="cardstyle">
-                <img src="@asset('images/get-involved.jpg')" />
+              <div class="image-box jumbo-bg" style="background-image: url(@asset('images/get-involved.jpg'))">
+
+              </div>
                 <p>
                   The Gen Rev Outdoor Club organizes hikes and other outdoor events to encourage getting outside, enjoying nature and each other, and being attentive to God speaking to us in little ways when we keep an eye out for Him. Gen Rev has ties to <a href="#" >New Hope Christian Reformed</a> and <a href="#" >Imago Dei Anglican</a> Churches in Bangor, ME.
                 </p>
