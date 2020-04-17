@@ -1,4 +1,4 @@
-<section class="hero footer-hero jumbo-bg" style="background-image: url('@asset('images/footer-bg.jpg')')">
+<section class="hero footer-hero jumbo-bg @if(is_page('home')) footer-hero-fp @endif" style="background-image: url('@asset('images/footer-bg.jpg')')">
 
   <div class="container">
     <div class="cta">

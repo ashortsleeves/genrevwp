@@ -7,22 +7,6 @@ export default {
     // toggles hamburger and nav open and closed states
     // Can also be included with a regular script tag
 
-  $(window).scroll(function(){
-      if ($(window).scrollTop() >= 30) {
-        $('.banner').addClass('fixed-header');
-      }
-      else {
-        $('.banner').removeClass('fixed-header');
-      }
-
-      if ($(window).scrollTop() >= 300) {
-        $('.brand').addClass('brand-scrolled');
-      }
-      else {
-        $('.brand').removeClass('brand-scrolled');
-      }
-  });
-
 
 
     var removeClass = true;

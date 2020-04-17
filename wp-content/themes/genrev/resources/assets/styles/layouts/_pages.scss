@@ -1,11 +1,17 @@
 .page-content {
-  padding: 30px 0;
-
-  @include laptop {
-    padding: 60px 0;
-  }
+  padding: 90px 0 0;
 
   @include desktop {
-    padding: 140px 0;
+    padding: 140px 0 0;
+
+    .sm-container {
+      max-width: 1000px;
+    }
+  }
+
+  .calendar-wrap {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
   }
 }

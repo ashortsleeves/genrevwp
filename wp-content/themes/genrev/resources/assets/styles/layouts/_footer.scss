@@ -24,8 +24,19 @@ section.footer-hero {
   @include laptop {
     .container {
       height: 500px;
-      padding-left: 90px;
     }
+
+    &.footer-hero-fp {
+      .container {
+        padding-left: 90px;
+      }
+    }
+  }
+
+  @include desktop {
+    .container {
+      padding-left: 90px;
+    }    
   }
 }
 

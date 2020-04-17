@@ -16,7 +16,7 @@
                 <p>
                   "Gen Rev" stands for <a href="https://en.wikipedia.org/wiki/General_revelation" target="_blank"> General Revelation <i class="fas fa-external-link-alt"></i></a>, which is a theological term. It refers to the way God reveals Himself to us through nature and all of the things the human mind might discover just by living life on earth.
                 </p>
-                <a class="btn" href="/?page_id=44">Learn More</a>
+                {{-- <a class="btn" href="/?page_id=44">Learn More</a> --}}
               </div>
               <div class="image-box jumbo-bg" style="background-image: url(@asset('images/borestone.jpg'))">
 
@@ -28,6 +28,8 @@
         </div>
       </div>
     </section>
+
+
     <section class="fp-section adventures">
       <div class="container">
         <div class="row justify-content-center">
@@ -221,7 +223,7 @@
   <section class="suggest-adventure">
     <div class="container">
       <h2>Have an idea for an event?</h2>
-      <a class="btn" href="/?page_id=46#suggest-adventure">Suggest an Adventure!</a>
+      <a class="btn" href="/contact-us/">Suggest an Adventure!</a>
     </div>
   </section>
   @endwhile
