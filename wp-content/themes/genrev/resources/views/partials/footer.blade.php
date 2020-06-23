@@ -20,7 +20,7 @@
    @endif
    <div>
       <a target="_blank" class="fb" href="https://www.facebook.com/groups/genrev.club/"><i class="fab fa-facebook"></i> Facebook</a>
-      <a target="_blank" class="mail" href="mailto:contact@genrev.club"><i class="fas fa-envelope"></i> contact@genrev.club</a>
+      {{-- <a target="_blank" class="mail" href="mailto:contact@genrev.club"><i class="fas fa-envelope"></i> contact@genrev.club</a> --}}
    </div>
   </div>
 </footer>
